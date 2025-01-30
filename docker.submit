@@ -1,0 +1,39 @@
+#!/bin/bash
+#SBATCH --time=1440
+#SBATCH --job-name=run_docker_tts_stucksam
+#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:1
+#SBATCH --mem=64G
+#SBATCH --account=cai_nlp
+#SBATCH --partition=p_gpu_all
+#SBATCH --output=/cluster/home/stucksam/log/%j_%N__run_docker_tts_stucksam.out
+#SBATCH --error=/cluster/home/stucksam/log/%j_%N__run_docker_tts_stucksam.err
+
+# %j: parses the slurm jobID into the file-name
+# %N: parses the Node name into the file-name
+
+module load cuda/12.2.2
+module load sarus/1.6.4
+
+echo --------------------------------
+echo available images:
+echo --------------------------------
+sarus images
+
+echo --------------------------------
+echo pull image
+echo --------------------------------
+sarus pull stucksam01/tts-chde:0.0.4
+
+echo --------------------------------
+echo Run container
+echo --------------------------------
+sarus run --mount=type=bind,source=/cluster/home/stucksam/swiss-phonemes-tts,destination=/swiss-phonemes-tts \
+          --mount=type=bind,source=/cluster/home/stucksam/datasets,target=/cluster/home/stucksam/datasets \
+          --mount=type=bind,source=/scratch,target=/scratch \
+          --workdir=/swiss-phonemes-tts \
+          stucksam01/tts-chde:0.0.4
+
+# submit the job:
+# sbatch <path-to-submit-file>/docker.submit

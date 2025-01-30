@@ -1,0 +1,26 @@
+accelerate==0.34.2
+bert-score==0.3.13
+datasets==3.0.0
+h5py==3.12.1
+jiwer==3.0.5
+joblib==1.4.2
+librosa==0.10.2.post1
+matplotlib==3.9.2
+nltk==3.9.1
+numpy~=2.0.2
+onnxruntime-gpu==1.19.2  # required for embeddings of wespeaker-voxceleb-resnet34-LM
+requests==2.32.3
+openpyxl==3.1.5
+pandas==2.2.2
+plotly==5.24.1
+pyannote.audio==3.3.2
+pydub==0.25.1
+pytubefix==8.5.2
+phonemizer==3.3.0
+seaborn==0.13.2
+scikit-learn==1.5.2
+soundfile==0.12.1
+spacy~=3.8.2
+torch==2.4.1
+transformers==4.44.2
+tqdm==4.66.5

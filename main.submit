@@ -1,0 +1,50 @@
+#!/bin/bash
+#SBATCH --time=1440
+#SBATCH --job-name=run_tts_chde_stucksam
+#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:1
+#SBATCH --mem=64G
+#SBATCH --account=cai_nlp
+#SBATCH --partition=p_gpu_high_end
+#SBATCH --output=/cluster/home/stucksam/log/%j_%N__run_tts_chde_stucksam.out
+#SBATCH --error=/cluster/home/stucksam/log/%j_%N__run_tts_chde_stucksam.err
+
+# %j: parses the slurm jobID into the file-name
+# %N: parses the Node name into the file-name
+
+env_name="ma"
+venv_base_dir="/raid/persistent_scratch/stucksam/venvs"
+venv_path="$venv_base_dir/$env_name"
+HOSTNAME=$(hostname)
+#if [ "$HOSTNAME" == "trinity" ]; then
+#    rm -r $venv_path
+#fi
+
+# create venv base dir if it does not exist
+mkdir -p /raid/persistent_scratch/stucksam/venvs/
+
+# Explicitly load cuda 12.2.2
+module load cuda/12.2.2
+
+# Check if the virtual environment exists
+echo "Searching ($venv_path)..."
+if [ -d "$venv_path" ]; then
+    echo "Virtual environment ($env_name) found. Activating..."
+    source "$venv_path/bin/activate"
+else
+    echo "Virtual environment ($env_name) not found. Creating..."
+    module load python/3.11.9
+    virtualenv $venv_path
+    unset PIP_TARGET
+    unset PYTHONPATH
+    source "$venv_path/bin/activate"
+    pip3 install -r requirements.txt
+fi
+
+python3 main.py
+
+
+# submit the job:
+# sbatch <path-to-submit-file>/main.submit
+
