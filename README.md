@@ -4,8 +4,7 @@ Zero-Shot (ZS) voice adaptation in text-to-speech (TTS), which enables speech sy
 
 
 # Model Names
-The names of the models in the Thesis were given later than when the evaluation was generally performed. As such, therehttps://github.com/stucksam/swiss-zero-shot-va-tts/blob/main/README.md
-may be unknown model names in the code. Generally follow these:
+The names of the models in the Thesis were given later than when the evaluation was generally performed. As such, there may be unknown model names in the code. Generally follow these:
 
 | Original Name | Evaluation Name  | Training regiment                                             |
 |---------------|------------------|---------------------------------------------------------------|
