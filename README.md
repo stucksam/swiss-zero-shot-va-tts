@@ -1,11 +1,11 @@
-# swiss-german-0-shot-va-tts
-Repository for my master thesis about TTS for Swiss German
+# No Shots Required: Zero-Shot Voice-Adaptation TTS for Swiss German Dialects
+Zero-Shot (ZS) voice adaptation in text-to-speech (TTS), which enables speech synthesis for unseen speakers without training on their voices, has seen significant progress in high-resource languages like German and English. However, low-resource languages and dialects remain underdeveloped due to data scarcity, limiting robust speech synthesis. This work addresses this gap for Swiss German, a group of dialects spoken in Switzerland, by compiling a large-scale dataset of 5000 hours from podcasts and online broadcasts. We integrate this dataset with existing corpora and apply weak labelling from Swiss German to Standard German, along with dialect identification and others, to fine-tune a multilingual pre-trained Zero-Shot-TTS model. The best-performing setups, evaluated on 43 unseen speakers, achieved a WER of 0.259 and a CER of 0.141, with a weighted F1 score of 0.78 across seven dialect regions for longer sentences. Human evaluation across 30 unseen speakers yielded a 3.60 speaker similarity MOS, -0.42 comparative MOS, and 3.98 intelligibility score, demonstrating reasonable voice adaptation. The findings highlight the potential of using weakly labelled audio data to enhance Zero-Shot voice adaptation performance for Swiss German dialect TTS.
 
 
 
 # Model Names
-The names of the models in the Thesis were given later than when the evaluation was generally performend. As such there
-may unknown model names in the code. Generally follow these:
+The names of the models in the Thesis were given later than when the evaluation was generally performed. As such, therehttps://github.com/stucksam/swiss-zero-shot-va-tts/blob/main/README.md
+may be unknown model names in the code. Generally follow these:
 
 | Original Name | Evaluation Name  | Training regiment                                             |
 |---------------|------------------|---------------------------------------------------------------|
@@ -16,7 +16,7 @@ may unknown model names in the code. Generally follow these:
 
 # File structure
 ## Evaluation
-Evaluation folder contains all evaluation results. Table below provides overview.
+The evaluation folder contains all evaluation results. The table below provides an overview.
 
 | Folder                                                    | File                              | Description                                                                                                                             |
 |-----------------------------------------------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
