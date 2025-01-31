@@ -13,6 +13,30 @@ may be unknown model names in the code. Generally follow these:
 | 7_6_SNF       | Mixed+STT4SG-FT  | Finetuning of 7_5 model checkpoint on STT4SG-350 exclusively. |
 | 9_2 / 9_2_SNF | STT4SG-Only      | Baseline model, only trained on STT4SG-350                    |
 
+# Audio
+Some samples are provided here to allow insight into the performance of the XTTS model on Swiss German. Samples are all from SRF+STT4SG-Mixed model
+
+## Good
+Canton: Zürich
+https://github.com/user-attachments/assets/3161c894-2c98-46db-a966-6f27b22b399c
+
+Canton: Basel
+https://github.com/user-attachments/assets/fdd03d25-c808-41ab-8bf6-3fa97d15ff5a
+
+## Average
+Canton: Graubünden
+https://github.com/user-attachments/assets/c4800eef-e359-4bff-9f07-42a7804958c4
+
+Canton: Bern
+https://github.com/user-attachments/assets/f1b04b05-606a-4d19-af1a-380b1771a433
+
+## Bad
+Canton: Ostschweiz
+https://github.com/user-attachments/assets/f55a7357-becd-4289-920a-319459020a41
+
+Canton: Innerschweiz
+https://github.com/user-attachments/assets/b793ed46-a9ce-486c-b3bc-da87f0f6e3e5
+
 
 # File structure
 ## Evaluation
@@ -36,4 +60,3 @@ The evaluation folder contains all evaluation results. The table below provides 
 | [Human Evaluation](evaluation/Human%20Evaluation)         | save_\*\_group_\*_date.csv        | Contains evaluations of each human evaluator in each subset                                                                             | 
 | [Shuffle-Experiment](evaluation/Shuffle-Experiment)       | shuffle_evaluation.csv            | Contains scores of the conditioning shuffle experiment                                                                                  | 
 
-# Audio
